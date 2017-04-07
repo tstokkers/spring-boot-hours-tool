@@ -9,9 +9,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-/**
- * Created by tim on 6-4-2017.
- */
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class UserRepositoryTest {
