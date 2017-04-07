@@ -24,9 +24,12 @@ public class UserRepositoryTest {
 
     @Test
     public void testFindUserByUsername() throws Exception {
-        User foundUser = userRepository.findUserByUsername("username1");
+        entityManager.persist(new User("voornaam3","achternaam3","username3","a@b.c"));
+        entityManager.persist(new User("voornaam4","achternaam4","username4","d@e.f"));
+
+        User foundUser = userRepository.findUserByUsername("username3");
         Assert.assertNotNull(foundUser);
-        Assert.assertEquals("voornaam1", foundUser.getFirstName());
+        Assert.assertEquals("voornaam3", foundUser.getFirstName());
 
     }
 

@@ -1,14 +1,11 @@
 package nl.sourcelabs.domain;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 
 /**
  * Created by tim on 6-4-2017.
  */
-@Data
 @Entity
 public class WorkedHours {
 

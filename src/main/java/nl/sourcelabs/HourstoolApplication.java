@@ -7,7 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
@@ -16,11 +16,10 @@ public class HourstoolApplication {
     public static void main(String[] args) {
         SpringApplication.run(HourstoolApplication.class, args);
         List<User> users;
-        users = new ArrayList<>();
-        User user1 = new User("voornaam1", "achternaam1", "username1", "someone@somewhere.org");
-        User user2 = new User("voornaam2", "achternaam2", "username2", "someoneElse@somewhere.org");
-        users.add(user1);
-        users.add(user2);
+        users = Arrays.asList(
+                new User("voornaam1", "achternaam1", "username1", "someone@somewhere.org"),
+                new User("voornaam2", "achternaam2", "username2", "someoneElse@somewhere.org")
+        );
 
         System.out.println(
                 users.stream().filter(e -> e.getFirstName().equalsIgnoreCase("voornaam1")).findAny().orElseGet(null)
