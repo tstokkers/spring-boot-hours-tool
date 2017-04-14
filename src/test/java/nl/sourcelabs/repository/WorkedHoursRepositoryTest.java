@@ -1,7 +1,6 @@
 package nl.sourcelabs.repository;
 
 import nl.sourcelabs.domain.WorkedHours;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -26,11 +28,14 @@ public class WorkedHoursRepositoryTest {
 
     @Test
     public void testFindWorkedHoursByUsername() throws Exception {
-        entityManager.persist(new WorkedHours(userRepository.findUserByUsername("username1"), 1.5, LocalDate.now()));
+        entityManager.persist(new WorkedHours(userRepository.findUserByUsername("username1"), 1.5, LocalDate.of(2017, 4, 2)));
+        entityManager.persist(new WorkedHours(userRepository.findUserByUsername("username1"), 1.5, LocalDate.of(2017, 4, 1)));
+        entityManager.persist(new WorkedHours(userRepository.findUserByUsername("username1"), 1.5, LocalDate.of(2017, 4, 3)));
 
-        WorkedHours workedHours = workedHoursRepository.findWorkedHoursByUser(userRepository.findUserByUsername("username1"));
-        Assert.assertNotNull(workedHours);
-        Assert.assertEquals("voornaam1", workedHours.getUser().getFirstName());
+        List<WorkedHours> workedHoursList = workedHoursRepository.findWorkedHoursByUserOrderByWorkDateAsc(userRepository.findUserByUsername("username1"));
+        assertEquals(3, workedHoursList.size());
+        WorkedHours workedHours = workedHoursList.get(0);
+        assertEquals("voornaam1", workedHours.getUser().getFirstName());
 
     }
 
