@@ -28,14 +28,14 @@ public class WorkedHoursRepositoryTest {
 
     @Test
     public void testFindWorkedHoursByUsername() throws Exception {
-        entityManager.persist(new WorkedHours(userRepository.findUserByUsername("username1"), 1.5, LocalDate.of(2017, 4, 2)));
-        entityManager.persist(new WorkedHours(userRepository.findUserByUsername("username1"), 1.5, LocalDate.of(2017, 4, 1)));
-        entityManager.persist(new WorkedHours(userRepository.findUserByUsername("username1"), 1.5, LocalDate.of(2017, 4, 3)));
+        entityManager.persist(new WorkedHours("username1", 1.5, LocalDate.of(2017, 4, 2)));
+        entityManager.persist(new WorkedHours("username1", 1.5, LocalDate.of(2017, 4, 1)));
+        entityManager.persist(new WorkedHours("username1", 1.5, LocalDate.of(2017, 4, 3)));
 
-        List<WorkedHours> workedHoursList = workedHoursRepository.findWorkedHoursByUserOrderByWorkDateAsc(userRepository.findUserByUsername("username1"));
+        List<WorkedHours> workedHoursList = workedHoursRepository.findWorkedHoursByUsernameOrderByWorkDateAsc("username1");
         assertEquals(3, workedHoursList.size());
         WorkedHours workedHours = workedHoursList.get(0);
-        assertEquals("voornaam1", workedHours.getUser().getFirstName());
+        assertEquals("username1", workedHours.getUsername());
 
     }
 

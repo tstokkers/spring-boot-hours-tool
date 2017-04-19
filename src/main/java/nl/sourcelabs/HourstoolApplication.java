@@ -21,9 +21,9 @@ public class HourstoolApplication {
                 new User("voornaam2", "achternaam2", "username2", "someoneElse@somewhere.org")
         );
 
-        System.out.println(
-                users.stream().filter(e -> e.getFirstName().equalsIgnoreCase("voornaam1")).findAny().orElseGet(null)
-        );
+//        System.out.println(
+//                users.stream().filter(e -> e.getFirstName().equalsIgnoreCase("voornaam1")).findAny().orElseGet(null)
+//        );
     }
 
     @Bean
@@ -32,7 +32,7 @@ public class HourstoolApplication {
             userRepository.save(new User("voornaam1", "achternaam1", "username1", "someone@somewhere.org"));
             userRepository.save(new User("voornaam2", "achternaam2", "username2", "someoneElse@somewhere.org"));
 
-            System.out.println(userRepository.findUserByUsername("username1").getFirstName());
+//            System.out.println(userRepository.findUserByUsername("username1").getFirstName());
 
         };
     }

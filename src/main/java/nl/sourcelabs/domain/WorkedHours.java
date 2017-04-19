@@ -12,13 +12,12 @@ public class WorkedHours {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne
-    private User user;
     private Double hoursWorked;
     private LocalDate workDate;
+    private String username;
 
-    public WorkedHours(User user, Double hoursWorked, LocalDate workDate) {
-        this.user = user;
+    public WorkedHours(String username, Double hoursWorked, LocalDate workDate) {
+        this.username = username;
         this.hoursWorked = hoursWorked;
         this.workDate = workDate;
     }
@@ -29,14 +28,6 @@ public class WorkedHours {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public Double getHoursWorked() {
@@ -53,5 +44,11 @@ public class WorkedHours {
 
     public void setWorkDate(LocalDate workDate) {
         this.workDate = workDate;
+    }
+
+    public String getUsername(){return username;}
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

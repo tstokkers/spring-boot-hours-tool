@@ -1,15 +1,17 @@
 package nl.sourcelabs.repository;
 
-import nl.sourcelabs.domain.User;
 import nl.sourcelabs.domain.WorkedHours;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
 @Repository
 public interface WorkedHoursRepository extends CrudRepository<WorkedHours, Long>{
 
-    List<WorkedHours> findWorkedHoursByUserOrderByWorkDateAsc(final User user);
+    @GetMapping
+    List<WorkedHours> findWorkedHoursByUsernameOrderByWorkDateAsc(@Param("username") final String username);
 
 }
