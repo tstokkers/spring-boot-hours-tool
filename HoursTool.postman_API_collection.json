@@ -65,6 +65,26 @@
 			"response": []
 		},
 		{
+			"name": "POST new workedhours XML",
+			"request": {
+				"url": "localhost:7777/worked-hours",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<workedHours>\n\t<username>username1</username>\n\t<hoursWorked>12</hoursWorked>\n\t<workDate>2017-04-04</workDate>\n</workedHours>\n\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
 			"name": "PUT modify workedhours",
 			"request": {
 				"url": "localhost:7777/worked-hours/1",
