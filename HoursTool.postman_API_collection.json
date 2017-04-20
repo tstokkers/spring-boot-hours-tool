@@ -1,0 +1,108 @@
+{
+	"variables": [],
+	"info": {
+		"name": "HoursTool",
+		"_postman_id": "b4515b21-608f-f7d4-571c-533e87336efc",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET all workedhours",
+			"request": {
+				"url": "localhost:7777/worked-hours",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"username1\",\n  \"hoursWorked\": \"8\",\n  \"workDate\": \"04/01/2017\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET all workedhours for week 16",
+			"request": {
+				"url": "localhost:7777/worked-hours?week=16",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST new workedhours",
+			"request": {
+				"url": "localhost:7777/worked-hours",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"username1\",\n  \"hoursWorked\": \"8\",\n  \"workDate\": \"04-01-2017\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT modify workedhours",
+			"request": {
+				"url": "localhost:7777/worked-hours/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"username1\",\n  \"hoursWorked\": \"8\",\n  \"workDate\": \"2017-02-04\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE workedhours",
+			"request": {
+				"url": "localhost:7777/worked-hours/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
