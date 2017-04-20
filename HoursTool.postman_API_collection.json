@@ -58,7 +58,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"username\": \"username1\",\n  \"hoursWorked\": \"8\",\n  \"workDate\": \"04-01-2017\"\n}"
+					"raw": "{\n  \"username\": \"username1\",\n  \"hoursWorked\": \"8\",\n  \"workDate\": \"2017-01-04\"\n}"
 				},
 				"description": ""
 			},
