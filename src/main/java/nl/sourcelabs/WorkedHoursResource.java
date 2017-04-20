@@ -52,6 +52,7 @@ public class WorkedHoursResource {
             existingWorkedHours.setUsername(workedHours.getUsername());
             existingWorkedHours.setHoursWorked(workedHours.getHoursWorked());
             existingWorkedHours.setWorkDate(workedHours.getWorkDate());
+            workedHoursRepository.save(existingWorkedHours);
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();
