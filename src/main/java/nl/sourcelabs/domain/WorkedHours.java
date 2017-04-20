@@ -1,7 +1,12 @@
 package nl.sourcelabs.domain;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDate;
+import java.time.temporal.WeekFields;
+import java.util.Locale;
 
 /**
  * Created by tim on 6-4-2017.
@@ -15,6 +20,8 @@ public class WorkedHours {
     private Double hoursWorked;
     private LocalDate workDate;
     private String username;
+
+    private WorkedHours(){};
 
     public WorkedHours(String username, Double hoursWorked, LocalDate workDate) {
         this.username = username;
@@ -50,5 +57,9 @@ public class WorkedHours {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public int getWeeknumber() {
+        return workDate.get(WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear());
     }
 }
