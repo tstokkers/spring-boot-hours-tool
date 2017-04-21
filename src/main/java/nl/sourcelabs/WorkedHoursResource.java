@@ -5,6 +5,7 @@ import nl.sourcelabs.domain.WorkedHours;
 import nl.sourcelabs.repository.UserRepository;
 import nl.sourcelabs.repository.WorkedHoursRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -75,5 +76,11 @@ public class WorkedHoursResource {
         List<WorkedHours> allWorkedHours = workedHoursRepository.findAllByWorkDateNotNull();
         List<WorkedHours> resultList = allWorkedHours.stream().filter(wh -> wh.getWeeknumber() == week).collect(Collectors.toList());
         return ResponseEntity.ok(resultList);
+    }
+
+    @ResponseStatus(value = HttpStatus.I_AM_A_TEAPOT, reason = "Something went wrong.")
+    @ExceptionHandler(Exception.class)
+    public void handleError() {
+        // Nothing to do
     }
 }

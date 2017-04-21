@@ -34,6 +34,8 @@ dependencies {
 	compile("com.h2database:h2")
 	compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
 	compile("com.fasterxml.jackson.dataformat:jackson-dataformat-xml")
+	compile("mysql:mysql-connector-java")
+	compile("com.zaxxer:HikariCP:2.6.1")
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile("junit:junit")
